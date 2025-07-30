@@ -5,6 +5,8 @@
 
 
 ===>>> example: site.com/.../redirect_uri=evil.com/...
+===>>> example: site.com/.../next_url=evil.com/...
+===>>> example: ===>>> example: site.com/.../returnurl=http://evil.com
 
 
 2 - payload: {///%5Cevil.com/} 
@@ -19,13 +21,7 @@
 ===>>> example: search box : injection
 
 
-4 - payload: {evil.com}
-
-
-===>>> example: ===>>> example: site.com/.../returnurl=http://evil.com
-
-
-5 - payload: {bing.com}
+4 - payload: {bing.com}
 
 
 ===>>> example: ===>>> url ===>>> X-forwarded-host: bing.com
