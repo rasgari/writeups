@@ -34,7 +34,10 @@
 
 ===>>> example: email ===>>> inspect ===>>> console: opener.location="https://evil.com"
 
-7 - payload:
+7 - payload: {forget password}
+
+===>>> example: https://20.44.36.49/.../google.com
+
 
 ==================================================================
 
