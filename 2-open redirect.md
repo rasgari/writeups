@@ -27,6 +27,18 @@
 ===>>> example: ===>>> url ===>>> X-forwarded-host: bing.com
 
 
+5 - payload: {%E3%80%82}
+
+
+===>>> example: ===>>> https://20.44.36.49//google%E3%80%82com
+
+
+
+
+
+==================================================================
+
+
 ## impact:
 - an attacker can do phishing with legitimate users
 -  they can also chain this with SSRF
