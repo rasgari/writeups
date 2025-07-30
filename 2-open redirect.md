@@ -8,6 +8,8 @@
 
 ===>>> example: site.com/.../next_url=evil.com/...
 
+===>>> example: site.com/.../current_url=evil.com/...
+
 ===>>> example: ===>>> example: site.com/.../returnurl=http://evil.com
 
 2 - payload: {///%5Cevil.com/} 
