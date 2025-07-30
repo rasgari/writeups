@@ -25,6 +25,11 @@
 ===>>> example: ===>>> example: site.com/.../returnurl=http://evil.com
 
 
+5 - payload: {bing.com}
+
+
+===>>> example: ===>>> url ===>>> X-forwarded-host: bing.com
+
 
 ## impact:
 - an attacker can do phishing with legitimate users
