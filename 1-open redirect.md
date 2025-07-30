@@ -1,7 +1,9 @@
 # open redirect
 
-payload: site.com///%5Cevil.com/
+payload: {///%5Cevil.com/} 
+example: site.com///%5Cevil.com/ 
 
+payload:site.com/ 
 
 impact:
 - an attacker can do phishing with legitimate users
