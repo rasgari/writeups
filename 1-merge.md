@@ -1,3 +1,3 @@
 # merge
 
-payload: { javas%9cript:alert(1)}
+payload: { javas%09cript:alert(1)}
