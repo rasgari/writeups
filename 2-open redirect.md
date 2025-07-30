@@ -5,7 +5,9 @@
 
 
 ===>>> example: site.com/.../redirect_uri=evil.com/...
+
 ===>>> example: site.com/.../next_url=evil.com/...
+
 ===>>> example: ===>>> example: site.com/.../returnurl=http://evil.com
 
 
