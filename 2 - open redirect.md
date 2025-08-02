@@ -16,7 +16,8 @@
 
 
 ===>>> example: site.com///%5Cevil.com/ 
-===>>> http://victim.com/page?redirect=http://evil.com
+
+===>>> victim.com/page?redirect=http://evil.com
 http://victim.com/page?url=https://evil.com
 http://victim.com/page?next=//evil.com
 http://victim.com/page?return=%2F%2Fevil.com
