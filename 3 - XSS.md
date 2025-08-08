@@ -1,3 +1,3 @@
 # XSS
 
-payload : {http://javascript:alert(1)
+payload : {http://javascript:alert(1)}
