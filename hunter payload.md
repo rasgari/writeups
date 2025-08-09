@@ -85,6 +85,8 @@ redirect=, url=, next=, callback=, return=, token=, id=, action=, page=
 - XSS ===>>>	q, search, name, message, comment, input, payload, text
 - SQL Injection ===>>>	id, user, username, password, search, page, filter, item
 
+
+===>>> parameter
 ```
 q, query, search, keyword, k, s, term
 id, user, uid, pid, product_id, cat, category
@@ -94,6 +96,13 @@ dest, destination, forward, out, view
 path, file, dir, folder, include
 lang, language, locale
 ```
+
+برای FUZZ کردن این پارامترها و پیلودها:
+
+```
+ffuf -u "https://target.com/page?FUZZ=value" -w params.txt
+```
+
 =======================================================================
 
 
@@ -109,7 +118,7 @@ lang, language, locale
 - 8	//evil.com%00	استفاده از null byte برای قطع رشته
 - 9	%EF%BC%8E%EF%BC%8E%2Fevil.com	استفاده از نقطه fullwidth و اسلش
 
-
+===>>> parameter
 ```
 redirect, next, url, return, dest, destination
 continue, callback, link, goto, jump, out
@@ -127,6 +136,7 @@ u, uri, path, page, forward
 - 6	"><iframe src="javascript:alert(1)"></iframe>	تست iframe با کد جاوااسکریپت
 - 7	javascript:alert(document.cookie)	تست اجرای دستور جاوااسکریپت داخل URL
 
+===>>> parameter
 ```
 q, search, s, term, keyword
 message, comment, content, body
