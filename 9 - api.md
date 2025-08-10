@@ -129,3 +129,61 @@ ffuf -u https://target/api/send_otp -w phone_numbers.txt
 ```
 
 =================================================================
+
+# چک‌لیست تست نفوذ API (نسخه ۲۰۲۵)
+
+## 1. شناسایی (Recon & Fuzzing)
+- [ ] اجرای fuzzing روی مسیرها، پارامترها، هدرها برای کشف endpointهای مخفی
+- [ ] تست پروتکل‌های غیراستاندارد (HTTP روی پورت ۸۰)
+- [ ] استفاده از OPTIONS برای شناسایی متدهای مجاز
+- [ ] تغییر نسخه API در مسیر (`/api/v1/endpoint` → `/api/v2/endpoint`)
+
+## 2. احراز هویت (Authentication)
+- [ ] تست User Enumeration و Brute-Force
+- [ ] تست Credential Stuffing
+- [ ] بررسی مکانیزم قفل حساب / CAPTCHA
+- [ ] تست ریست‌پسورد بدون محافظت کافی
+
+## 3. کنترل دسترسی (Authorization / IDOR)
+- [ ] تست IDOR با تغییر شناسه‌ها در URL و Body
+- [ ] تست افزایش سطح دسترسی عمودی (Vertical Privilege Escalation)
+- [ ] تست افزایش سطح دسترسی افقی (Horizontal Privilege Escalation)
+
+## 4. منطق تجاری (Business Logic Flaws)
+- [ ] تست دور زدن Rate Limiting با تغییر هدر `X-Forwarded-For`
+- [ ] دستکاری قیمت یا تخفیف (`price: -999`)
+- [ ] تست مقادیر بسیار بزرگ یا غیرمنتظره
+- [ ] تست چندبار استفاده از کوپن یا تراکنش دوباره (Race Conditions)
+
+## 5. آسیب‌پذیری‌های کلاسیک
+- [ ] SQL Injection / NoSQL Injection
+- [ ] XSS (در خروجی HTML)
+- [ ] SSRF
+- [ ] Command Injection
+- [ ] تست عدم اعتبارسنجی ورودی
+- [ ] بررسی HTTPS و هدرهای امنیتی (HSTS)
+
+## 6. افشای داده (Sensitive Data Exposure)
+- [ ] تست محدودیت نرخ (Rate Limiting)
+- [ ] تست افشای PII یا توکن‌ها در پاسخ‌ها یا خطاها
+
+## 7. گزارش‌دهی و بازآزمایی
+- [ ] تهیه گزارش با سطح خطر، نحوه رفع، و وضعیت Retest
+- [ ] اولویت‌بندی آسیب‌ها بر اساس شدت و پیچیدگی
+
+## 8. نظارت مستمر
+- [ ] پیاده‌سازی Runtime API Protection
+- [ ] پایش حملات سرریز، رفتار نابهنجار یا تهدیدات نوظهور
+
+---
+
+# پیلودهای رایج ۲۰۲۵ (بر اساس گزارش هانترها)
+
+## 1. SQL Injection
+```sql
+' OR 1=1 --
+" OR "1"="1
+1') UNION SELECT null,null,null--
+
+
+==================================================================
