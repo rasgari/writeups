@@ -284,3 +284,22 @@ filter, report, query
 
 
 ============================================================================
+
+# 📌 پارامترها و مسیرهای کلیدی برای تست نفوذ وب (Bug Bounty)
+
+| دسته | پارامتر / مسیر | توضیح کاربرد | پتانسیل آسیب‌پذیری |
+|------|----------------|--------------|--------------------|
+| **Open Redirect** | `redirect`, `url`, `next`, `return`, `dest`, `continue` | تغییر مسیر کاربر | Open Redirect → Account Takeover, SSRF |
+| **File Inclusion / Path Traversal** | `file`, `path`, `page`, `template`, `doc`, `/download?file=`, `/view?path=` | بارگذاری فایل یا مسیر | LFI, RFI, Path Traversal |
+| **Authentication / Tokens** | `token`, `auth`, `api_key`, `key`, `session` | توکن‌ها و کلیدهای امنیتی | Auth Bypass, Token Leakage |
+| **IDOR** | `id`, `uid`, `user_id`, `pid`, `cid`, `/user/1234`, `/order/1001` | شناسه‌های کاربر یا سفارش | IDOR, Privilege Escalation |
+| **Search / Query** | `q`, `search`, `keyword`, `query` | جستجو در سیستم | XSS, SQLi |
+| **Callback / JSONP** | `callback`, `jsonp`, `cb` | اجرای کد سمت کلاینت | JSONP hijacking, XSS |
+| **Upload** | `/upload`, `/media`, `/image`, `avatar`, `file` | آپلود فایل | File Upload, RCE, XSS via SVG |
+| **Admin / Config** | `/admin`, `/config`, `/settings`, `/manage` | تنظیمات و کنترل پنل | Privilege Escalation, RCE |
+| **API endpoints** | `/api/v1/`, `/graphql`, `/rest/`, `/v2/` | API‌ها و GraphQL | GraphQL Injection, IDOR, Mass Assignment |
+| **Debug / Backup** | `/debug`, `/phpinfo`, `/backup.zip`, `/old/` | مسیرهای تست و پشتیبان | Info Disclosure, Code Leak |
+| **Payment / Orders** | `/checkout`, `/payment`, `/order`, `/invoice` | تراکنش‌ها و پرداخت | Logic Flaw, Price Manipulation |
+| **Misc (Sensitive)** | `/robots.txt`, `/sitemap.xml`, `/git/config`, `.env` | فایل‌های حساس | Info Disclosure, Credential Leak |
+
+============================================================================
