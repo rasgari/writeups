@@ -343,6 +343,88 @@ Broken Access Control / Business Logic Flaws (دستکاری پارامترها 
 
 ============================================================================
 
+# 🐞 Bug Bounty Checklist 2025 (فنی + منطقی)
+
+## 📌 مثال‌های واقعی
+
+### 1. Path Traversal با بک‌اسلش
+https://cashback.opera.com/pl/en/nike/offer?id=..\..\..\pwn
+
+- علت: فیلتر `/` ولی نادیده‌گیری `\`
+- گزارش: Client-Side Path Traversal (Opera Cashback)
+
+### 2. Open Redirect در صفحه لاگین
+https://target.com/login?redirect_url=https://evil.com
+
+- علت: عدم اعتبارسنجی دامنه مقصد
+- کاربرد: Phishing یا Chain به SSRF
+
+### 3. SSRF از پارامتر `url`
+https://search.gov/?url=http://127.0.0.1:8000/admin
+
+- علت: ارسال درخواست سرور به آدرس داخلی
+- گزارش: HackerOne #514224
+
+---
+
+## 📋 چک‌لیست مرحله‌ای
+
+### 1. Recon (شناسایی)
+- جمع‌آوری Subdomains, Endpoints با **Amass, FFUF, HTTPX, GAU**
+- استخراج endpoint و پارامتر از **JavaScript/CSS**
+- ابزار پیشنهادی: `arjun`, `hakrawler`, `linkfinder`
+
+### 2. Parameter Discovery & Fuzzing
+- پارامترهای مهم:
+id, user, uid, redirect, url, next, returnUrl, token, file, path, page, dest
+
+- تکنیک‌ها:
+  - Parameter Pollution
+  - تغییر ترتیب پارامترها
+  - اضافه کردن مقادیر غیرمنتظره
+
+### 3. آسیب‌پذیری‌های رایج
+- **XSS** → بازتابی، ذخیره‌ای، DOM
+- **SQLi**, **XXE**, **Command Injection**
+- **Open Redirect** → تست پارامترهای `url`, `redirect_uri`, `next`
+- **SSRF** → bypass با redirect یا DNS rebinding
+- **LFI/RFI** → تست مسیرهای `/etc/passwd`, log files
+- **File Upload** → بای‌پس MIME و پسوند
+
+### 4. باگ‌های منطقی (Business Logic Flaws)
+- IDOR پیچیده در مراحل چندگانه
+- تغییر hidden fields
+- دور زدن validation سمت کلاینت
+- سوءاستفاده از کوپن و تخفیف
+- Race Condition (double spending, coupon abuse)
+
+### 5. Bug Chaining
+- Open Redirect → SSRF → Data Leak
+- XSS → سرقت JWT/Token
+- LFI → RCE با log poisoning
+
+### 6. گزارش‌دهی سریع
+- **PoC واضح** (مرحله به مرحله)
+- **Impact**: مالی، داده، کنترل حساب
+- اسکرین‌شات + کد اکسپلویت
+- پیشنهاد رفع باگ
+
+---
+
+## 📂 ساختار پیشنهادی گزارش
+1. عنوان: کوتاه و دقیق
+2. توضیح: شرح آسیب‌پذیری
+3. گام‌ها: PoC مرحله‌ای
+4. اثر: تاثیر امنیتی یا مالی
+5. توصیه: راهکار رفع
+
+---
+
+## 🛠 ابزارهای پیشنهادی
+- Recon: `amass`, `subfinder`, `httpx`, `gau`
+- Parameter discovery: `arjun`, `ffuf`
+- Exploit: `burp`, `sqlmap`, `xray`
+- JS analysis: `linkfinder`, `JSFinder`
 
 
 ============================================================================
