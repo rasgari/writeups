@@ -659,4 +659,72 @@ URLهای مهم برای تست نفوذ
 
 ============================================================================
 
+پارامترهای مهم برای تست نفوذ وب
+این پارامترها معمولاً در URLها، فرم‌ها، یا درخواست‌های HTTP (GET/POST) یافت می‌شوند و برای تست آسیب‌پذیری‌هایی مانند SQL Injection، XSS، CSRF، LFI، و غیره استفاده می‌شوند:
 
+پارامترهای ورودی کاربر:
+
+id, user_id, uid: برای تست Insecure Direct Object Reference (IDOR) و دسترسی غیرمجاز.
+q, query, search: برای تست SQL Injection و XSS در جستجوها.
+email, username, password: برای تست مشکلات احراز هویت یا افشای اطلاعات حساس.
+token, access_token, session_id: برای تست مشکلات مدیریت جلسه (Session Management) و سرقت توکن.
+redirect, url, next, return_url: برای تست Unvalidated Redirects و Open Redirect.
+file, path, filename: برای تست Local File Inclusion (LFI) یا Remote File Inclusion (RFI).
+lang, locale: برای تست مشکلات مربوط به تغییر زبان یا قالب‌بندی.
+
+
+پارامترهای مرتبط با API:
+
+api_key, key, auth: برای تست دسترسی غیرمجاز به APIها.
+endpoint, action: برای شناسایی نقاط ورودی API و تست منطق کسب‌وکار.
+data, payload: برای تست تزریق‌های JSON یا XML.
+
+
+پارامترهای فرم‌های وب:
+
+name, phone, address: برای تست افشای اطلاعات حساس یا تزریق داده.
+submit, action_type: برای تست CSRF یا مشکلات منطق فرم.
+otp, code: برای تست دور زدن مکانیزم‌های تأیید دو مرحله‌ای.
+
+
+پارامترهای تست منطق کسب‌وکار:
+
+price, amount, quantity: برای تست دستکاری قیمت یا منطق پرداخت.
+role, permission, access: برای تست افزایش سطح دسترسی (Privilege Escalation).
+
+
+
+URLهای مهم برای تست نفوذ
+این URLها معمولاً برای کشف دارایی‌های مخفی، فایل‌های حساس، یا نقاط ورودی کاربرد دارند. هانترها از ابزارهایی مانند Waybackurls، Katana، و DirBuster برای شناسایی این URLها استفاده می‌کنند:
+
+فایل‌های حساس و پیکربندی:
+
+/.env, /.config, /.ini, /.htaccess, /.htpasswd: فایل‌های پیکربندی که ممکن است اطلاعات حساس مانند کلیدهای API یا رمزهای عبور را فاش کنند.
+/config.json, /settings.yaml, /secrets: برای افشای تنظیمات برنامه.
+/.git, /.svn, /.DS_Store: فایل‌های مربوط به سیستم‌های کنترل نسخه که ممکن است کد منبع را فاش کنند.
+/backup.sql, /db.bak, /database.dump: فایل‌های پشتیبان پایگاه داده.
+
+
+پنل‌های مدیریتی و نقاط ورودی:
+
+/admin, /login, /dashboard: برای تست دسترسی غیرمجاز به پنل‌های مدیریتی.
+/wp-admin, /wp-login.php: برای برنامه‌های مبتنی بر وردپرس.
+/phpmyadmin, /adminer: برای دسترسی به ابزارهای مدیریت پایگاه داده.
+/server-info, /jmx-console, /solr/select: نقاط ورودی خاص که ممکن است توسط ابزارهای اسکن شناسایی شوند.
+
+
+API و نقاط پایانی:
+
+/api/v1/, /api/v2/, /graphql: برای تست آسیب‌پذیری‌های API مانند Broken Object Level Authorization (BOLA).
+/rest, /soap: برای تست APIهای REST یا SOAP.
+/debug, /test, /dev: نقاط ورودی توسعه که ممکن است در محیط‌های تولیدی باقی مانده باشند.
+
+
+فایل‌ها و دایرکتوری‌های مخفی:
+
+/robots.txt, /sitemap.xml: برای شناسایی دایرکتوری‌ها و فایل‌های مخفی.
+/backup/, /old/, /archive/: برای یافتن نسخه‌های قدیمی یا فایل‌های فراموش‌شده.
+/logs/, /error.log, /access.log: برای افشای اطلاعات حساس از لاگ‌ها.
+
+
+============================================================================
