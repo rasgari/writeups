@@ -2,5 +2,6 @@
 
 
 ## parameter:
-api/users/1
-user_id
+{api/users/1}
+{user_id}
+{_id}
