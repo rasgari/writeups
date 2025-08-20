@@ -1,0 +1,30 @@
+| نام هدر | مقدار نمونه | هدف / استراتژی حمله |
+|---|---|---|
+| X-Original-Path | /admin | دسترسی به روت‌های قدیمی/منقضی با تغییر مسیر بک‌اند |
+| X-Rewrite-URL | /admin | بایپس با تحریک منطق rewrite در reverse proxies |
+| X-Forwarded-Path | /admin | شبیه‌سازی منطق internal routing در سرور |
+| X-Forwarded-Prefix | /admin | بایپس API gatewayها برای دسترسی به سرویس‌های داخلی |
+| X-Original-URI | /admin | بایپس معمولی در Apache/Nginx با تغییر URI |
+| X-Request-URI | /admin | بایپس در بک‌اندهایی با منطق دسترسی سفارشی |
+| X-Rewrite-URI | /admin | بایپس API و سرویس‌های خاصی که از این هدرها استفاده می‌کنند |
+| X-Host | internal.app.local | فریب بک‌اند جهت دسترسی به دامنه داخلی |
+| Host | 127.0.0.1 | بایپس SSRF، دستکاری درخواست، تغییر مقصد درخواست |
+| X-Forwarded-Host | 127.0.0.1 | حمله SSRF و بایپس منطق اعتبارسنجی میزبان |
+| X-Real-IP | 127.0.0.1 | جعل IP واقعی برای عبور از whitelistها |
+| X-Custom-IP-Authorization | 127.0.0.1 | برخی APIها دسترسی admin را بر اساس این هدر می‌دهند |
+| Originating-IP | 127.0.0.1 | جعل IP مبداً برای بایپس محدودیت‌ها |
+| Origin | https://internal.app | بایپس چک‌های Origin و محدودیت CORS |
+| X-Forwarded-Scheme | https | جعل schema جهت دور زدن منطق https فقط |
+| X-Scheme | https | بایپس چک‌های SSL و دسترسی اجباری با https |
+| X-HTTP-Method-Override | DELETE | ارسال متدهای خاص مثل DELETE با روش بایپس متد |
+| X-Method | DELETE | دور زدن محدودیت متدهای HTTP |
+| Transfer-Encoding | chunked | حمله CL.TE Smuggling برای بایپس امنیت |
+| Content-Length | 0 | تاثیرگذاری روی مقدار واقعی payload/request |
+| X-Original-Scheme | for=127.0.0.1;host=admin | بایپس SSRF و ترکیب spoofing و forward در یک هدر |
+| Connection | close | حملات header smuggling و تاثیر در مدیریت اتصال |
+| Content-Type | application/json | بایپس منطق پردازش نوع داده در سرور |
+| Accept | application/json | بایپس مذاکره قالب داده و نوع خروجی |
+
+
+
+======================================
