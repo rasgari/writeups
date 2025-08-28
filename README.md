@@ -23,7 +23,7 @@ XSS:
 
 
 
-======================================
+=============================================================================
 
 
 � اطلاعیه مهم برای کاربران گرامی HelloDigi
@@ -38,7 +38,7 @@ https://hellodigi.ir/vulnerability.html
 
 هدف ما از راه‌اندازی این بخش، کمک به کاربران و مدیران شبکه برای مقابله سریع‌تر و هوشمندانه‌تر با تهدیدات روزافزون سایبری است.
 
-=====================================
+============================================================================
 
 سناریو‌‌حمله رو در باگ بانتی
 
@@ -50,7 +50,7 @@ https://hellodigi.ir/vulnerability.html
 
 به زبان ساده، مهاجم با سوءاستفاده از ضعف‌های سیستم، کنترل حساب کاربری قربانی رو می‌گیره.
 
-=======================================
+==============================================================================
 
 
 مراحل سوءاستفاده از آسیب‌پذیری ✨IDOR برای بازیابی اطلاعات شخصی کاربران (PII):
@@ -64,4 +64,42 @@ api/v4/me/details
 
 4. اطلاعات کامل شخصی کاربر (PII) را بازیابی کنید.
 
-=======================================
+==============================================================================
+
+
+Hey Hunter's,
+DarkShadow here back again!
+
+Tip: 
+1. open target in your burp and browse as normal user.
+2. Go proxy history and filter only js files.
+3. Search these are keywords in:
+       🔍 main, app, runtime,bundle, 
+        polyfills, auth, config, 
+        settings, local, dev, data, api, 
+        session, user,core, client, 
+        server, utils,base
+
+﻿
+This are files gold mine to find vulnerabilities like:
+
+1. Authentication bypass
+2. Sensitive info leaks
+3. Hardcoded credentials
+4. Config/env file disclosure
+5. Hidden login portals
+6. JWT secrets & API keys
+7. Outdated services loed CVE to exploit
+8. Dependency confusion
+9. File upload endpoints
+10. RFI → RCE
+11. Open redirection
+12. DOM-based XSS
+13. WebSocket endpoints
+14. Hidden parameters
+15. IDOR
+
+So guys show your love and stay with us and follow x.com/darkshadow2bd
+
+
+==============================================================================
