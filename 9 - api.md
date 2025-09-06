@@ -187,3 +187,10 @@ ffuf -u https://target/api/send_otp -w phone_numbers.txt
 
 
 ==================================================================
+
+
+Testing Tool visits Now
+
+https://securitytoolkits.com/tools/api-key-tester
+
+========================================================
