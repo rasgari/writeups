@@ -122,3 +122,12 @@ parser = etree.XMLParser(resolve_entities=False)
 @TryHackBox | The Chaos
 
 #XXE #Prevention #CyberSecurity
+
+
+===================================
+
+ابزار docem ابزاری است که برای گنجاندن Payloadهای XXE  و XSS در قالب‌های سندی مانند docx, odt, pptx, xlsx استفاده می‌شود. این فرمت‌های سند در واقع فایل‌های ZIP حاوی فایل‌های XML هستند؛ به همین دلیل امکان تزریق این نوع حملات وجود دارد.
+
+https://github.com/whitel1st/docem
+
+=====================================
