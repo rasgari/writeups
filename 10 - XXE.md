@@ -131,3 +131,9 @@ parser = etree.XMLParser(resolve_entities=False)
 https://github.com/whitel1st/docem
 
 =====================================
+
+
+مقاله مورد اشاره در جلسات XXE :
+https://gosecure.github.io/xxe-workshop/#0
+لابراتوار مورد بررسی در جلسات XXE :
+https://www.vulnhub.com/entry/xxe-lab-1,254/
