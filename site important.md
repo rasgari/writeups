@@ -7,3 +7,8 @@
 ===>>> https://javascript.info/
 
 https://owasp.org/www-project-top-ten/
+
+
+
+rule recently 
+===>>>  https://rulezet.org/
